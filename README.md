@@ -19,3 +19,22 @@
 - Sprint 1: CRUD de salas.
 - Sprint 2: Agendamento e cancelamento.
 - Sprint 3: Integração e autenticação.
+------------------------------------------------------------------------
+**Entidades:**
+
+-   **Sala**
+    -   `id` (PK)\
+    -   `nome` (obrigatório, único)\
+    -   `capacidade` (inteiro ≥ 1)\
+    -   `recursos` (texto livre: projetor, TV, etc.)
+-   **Reserva**
+    -   `id` (PK)\
+    -   `sala_id` (FK → Sala)\
+    -   `usuario_id` (FK → Usuário/Funcionário)\
+    -   `data_hora_inicio` (obrigatório)\
+    -   `data_hora_fim` (obrigatório, \> `data_hora_inicio`)\
+    -   **Regra:** Não permitir reservas sobrepostas para a mesma sala.
+-   **Usuario**
+    -   `id` (PK)\
+    -   `nome` (até 150 caracteres, obrigatório)\
+    -   `email` (único, regex de e-mail)
